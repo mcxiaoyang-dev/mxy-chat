@@ -42,7 +42,7 @@ if result.returncode != 0:
     raise SystemExit(f"llama-cli failed: {result.returncode}")
 
 reply = result.stdout.strip()
-reply = reply.replace("<|im_end|>", "").strip()
+reply = reply.replace("<|im_end|>", "").replace("[end of text]", "").strip()
 if not reply:
     reply = "[空回复]"
 
